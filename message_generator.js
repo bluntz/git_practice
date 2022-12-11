@@ -1,21 +1,23 @@
-
+// TAKES A NUMBER (NUM) AND RETURNS A RANDOM NUMBER BETWEEN 0 AND NUM
 function randomNumberGenerator(num){
-    // TAKES A NUMBER (NUM) AND RETURNS A RANDOM NUMBER BETWEEN 0 AND NUM
     return Math.floor(Math.random()* num); 
 };
 
+// MULTIPLE ARRAYS CONTAINING KEY WORDS THAT ARE RANDOMLY ADDED TO THE SENTENCES IN THE SENTENCESTARTER STRUCT
 const subject = ['bullfrog', 'femme', 'racoon', 'weasel', 'badger', 'sloth', 'buffalo-mouse', 'otter'];
 const adjective = ['happiness', 'sadness', 'joyfulness', 'grumpiness', 'wackiness'];
 const noun = ['banana', 'tantrum', 'fart', 'pickle', 'mango'];
 const condition = ['simple', 'tone deaf', 'fervent', 'ridiculous','ferocious'];
 const beverage = ['Beer', 'Coca Cola', 'fanta', 'Dr Pepper', 'bedbull'];
 
+// RANDOM INDEX VARIABLE FOR THE ABOVE ARRAYS
 const randSubject = randomNumberGenerator(subject.length);
 const randAdjective = randomNumberGenerator(adjective.length);
 const randNoun = randomNumberGenerator(noun.length);
 const randCondition = randomNumberGenerator(condition.length);
 const randBeverage = randomNumberGenerator(beverage.length);
 
+// STRUCT WITH NONSENSE SENTENCES THAT TAKES IN WORDS FROM THE ABOVE ARRAYS BASED ON THE INDEX CREATED
 const sentenceStarters = {
     iInspire: [`Always know that a ${subject[randSubject]}s ${adjective[randAdjective]} dictates how the 
                 ${noun[randNoun]} taste. It's a ${condition[randCondition]} philosophy - Monsieur Croque`],
@@ -31,14 +33,16 @@ const sentenceStarters = {
     iThink: [`Cogito, Ergo Sum said no ${subject[randSubject]}! - i R baBOon`],
     iLove: [`The story of the ${subject[randSubject]} is quicker than a wink of an eye.
             The story of ${beverage[randBeverage]} is hello and goodbye until we party again - Marshall AsteriX`],
-    isweet: [`A Bomboloni is a bomboloni! - ${subject[randSubject]} Fragatti`],
+    iSweet: [`A Bomboloni is a bomboloni! - ${subject[randSubject]} Fragatti`],
     iDare: [`We can’t hold hands... Someone might see. Won't you please... Hold toes with me? - sHeLf ${subject[randSubject]}ein`],
     iTravel: [`In Corsica do as Corsicans, but remember to never offer a ${noun[randNoun]} to ${subject[randSubject]} Bonaparte - Dov`]
 };
 
+// FUNCTION THAT RETURNS A RANDOMLY SELECTED STRUCT KEY
 function returnRandomObjectKey(anObject) {
     const keys = Object.keys(anObject);
     return keys[Math.floor(Math.random() * keys.length)];
 };
 
+//FINAL OUTPUT
 console.log(sentenceStarters[returnRandomObjectKey(sentenceStarters)]);
